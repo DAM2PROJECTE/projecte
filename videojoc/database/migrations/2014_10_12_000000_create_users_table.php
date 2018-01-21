@@ -14,12 +14,24 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->increments('id_user');
+            $table->string('userName',15)->unique()->nullable(false);
+            $table->string('name',20)->nullable(false);
+            $table->string('surname1',20)->nullable(true);
+            $table->string('surname2',20)->nullable(true);
+            $table->string('password',60)->nullable(false);
+            $table->string('email',50)->nullable(false)->unique();
+            $table->boolean('status')->nullable(false);
+            $table->string('confirmation_code',50)->nullable(false)->unique();
+            $table->integer('points')->nullable(false);
+            $table->date('birthdate')->nullable(true);
+            $table->integer('role')->unsigned();
+            $table->boolean('status_delete')->nullable(false);
+            $table->string('pictureProfile',100)->nullable(true);
+            $table->char('gender',1)->nullable(true);
             $table->timestamps();
+            $table->foreign('role')->references('id')->on('DiccionariDades');
+
         });
     }
 
