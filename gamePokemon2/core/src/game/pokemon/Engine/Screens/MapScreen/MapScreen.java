@@ -35,6 +35,7 @@ public abstract class MapScreen extends BaseScreen {
         //setInputProcessor(hero);
     }
 
+
     protected Hero hero;
     protected ManagementSprite ms;
     private Map<String,Square> squares;
@@ -61,6 +62,7 @@ public abstract class MapScreen extends BaseScreen {
         addHero(this.getHero(),this.getHero().getActorPosX(), this.getHero().getActorPosY());
         includeTextureTall();
         includeEvents();
+        doStoryEventSquare(this.hero.getActorPosX()+""+this.hero.getActorPosY());
 
     }
 
@@ -172,6 +174,28 @@ public abstract class MapScreen extends BaseScreen {
 
     }
 
+    public void doStoryEventSquare(String idSquare){
+        if(this.squares.get(idSquare)==null){
+            throw new SquareNotFound();
+        }
+        boolean findEvent= false;
+        Utils.showMessage("casella comporbada: " + idSquare);
+        Utils.showMessage("Hero:" + this.hero.getActorPosX() + this.hero.getActorPosY());
+        if(!this.squares.get(idSquare).getStoryEvent().isEmpty()) {
+            for (int i = 0; i > this.squares.get(idSquare).getStoryEvent().size() || !findEvent; i++) {
+            /*if(this.squares.get(idSquare).getEvent().get(i)!=null) {
+                findEvent = this.squares.get(idSquare).doEvent(i);
+            }*/
+            /*this.squares.get(idSquare).doEvent(0)==false){
+                this.squares.get(idSquare).doEvent(1);
+            }*/
+                findEvent = this.squares.get(idSquare).doStoryEvent(i);
+
+
+            }
+        }
+    }
+
     public void addDrawEvent(Draw event){
         addActorInStage((BaseActors)event);
     }
@@ -181,6 +205,12 @@ public abstract class MapScreen extends BaseScreen {
             throw new SquareNotFound();
         }
         this.squares.get(squarePosX+""+squarePosY).setEvent(event);
+    }
+    protected void addStoryEvent(Event event, int squarePosX, int squarePosY){
+        if(this.squares.get(squarePosX+""+squarePosY)==null){
+            throw new SquareNotFound();
+        }
+        this.squares.get(squarePosX+""+squarePosY).setStoryEvent(event);
     }
 
 

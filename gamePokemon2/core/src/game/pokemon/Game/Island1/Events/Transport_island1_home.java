@@ -26,6 +26,6 @@ public class Transport_island1_home extends Event {
     protected void getsInstruccions() {
         this.instruccions.clear();
         //home h = new home(Main.m);
-        this.instruccions.add(new TransportEvent(new home(Main.m),5,2));
+        this.instruccions.add(new TransportEvent(new home(Main.m),5,1));
     }
 }

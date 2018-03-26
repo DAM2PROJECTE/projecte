@@ -60,6 +60,20 @@ public class Hero extends Character implements InputProcessor {
         return false;
     }
 
+    protected void executeStoryEvent() {
+       /* if(this.name_position.contains("Down")){
+            this.map.doEventSquare(actorPosX+""+(actorPosY-1));
+        }else if(this.name_position.contains("Up")){
+            this.map.doEventSquare(actorPosX+""+(actorPosY+1));
+        }else if(this.name_position.contains("Left")){
+            this.map.doEventSquare((actorPosX-1)+""+actorPosY);
+        }else if(this.name_position.contains("Right")){
+            this.map.doEventSquare((actorPosX+1)+""+actorPosY);
+
+        }*/
+        this.map.doStoryEventSquare(actorPosX+""+actorPosY);
+    }
+
     protected void executeEvent() {
         if(this.name_position.contains("Down")){
             this.map.doEventSquare(actorPosX+""+(actorPosY-1));

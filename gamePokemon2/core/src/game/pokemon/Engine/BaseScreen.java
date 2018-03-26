@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import game.pokemon.Engine.Actors.Hero;
+import game.pokemon.Engine.Audio.Effect;
 import game.pokemon.Main;
 import game.pokemon.System.Utils.Utils;
 
@@ -24,11 +25,20 @@ public abstract class BaseScreen  implements Screen{
     private Stage stage;
     private OrthographicCamera camera;
 
+    public Effect getEffect() {
+        return effect;
+    }
+
+    private Effect effect;
+
+
     public BaseScreen(Main game) {
         this.game = game;
         this.camera = new OrthographicCamera();
         this.config = new Config();
+        this.effect = Effect.getInstanceManagement();
         getsInstancedStage();
+
 
     }
 

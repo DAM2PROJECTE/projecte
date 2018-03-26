@@ -51,6 +51,7 @@ public class Protagonista  extends Hero{
                 }
                 this.name_position="SeeUp0";
                 this.sprite = new TextureRegion(this.img,0,3*48, 32,48);
+                executeStoryEvent();
                 break;
 
             case Config.BUTTON_ARROW_DOWN:
@@ -61,6 +62,7 @@ public class Protagonista  extends Hero{
                 }
                 this.name_position="SeeDown0";
                 this.sprite = new TextureRegion(img,0,0, 32,48);
+                executeStoryEvent();
                 break;
 
             case Config.BUTTON_ARROW_LEFT:
@@ -72,6 +74,7 @@ public class Protagonista  extends Hero{
                 }
                 this.name_position="SeeLeft0";
                 this.sprite = new TextureRegion(img,0,1*48, 32,48);
+                executeStoryEvent();
                 break;
 
             case Config.BUTTON_ARROW_RIGHT:
@@ -83,6 +86,7 @@ public class Protagonista  extends Hero{
                 }
                 this.name_position="SeeRight0";
                 this.sprite = new TextureRegion(img,0,2*48, 32,48);
+                executeStoryEvent();
                 break;
 
             case Config.BUTTON_A:

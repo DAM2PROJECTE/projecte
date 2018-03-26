@@ -62,7 +62,7 @@ public class home extends MapScreen {
         addSquare(new Still(ms.GetTexture("entrada1")),4,1, Square.Level.SMALL);
         addSquare(new Still(ms.GetTexture("entrada2")),5,1, Square.Level.SMALL);
         addSquare(new Still(ms.GetTexture("entrada3")),6,1, Square.Level.SMALL);
-
+        addSquare(new Still(ms.GetTexture("entrada5")),5,0, Square.Level.SMALL);
 
 
     }
@@ -70,7 +70,7 @@ public class home extends MapScreen {
     @Override
     protected void includeTextureHalf() {
         addSquare(new Still(ms.GetTexture("entrada4")),4,0, Square.Level.HALF);
-        addSquare(new Still(ms.GetTexture("entrada5")),5,0, Square.Level.HALF);
+
         addSquare(new Still(ms.GetTexture("entrada6")),6,0, Square.Level.HALF);
 
     }
@@ -90,7 +90,7 @@ public class home extends MapScreen {
 
     @Override
     protected void includeEvents() {
-        addEvent(new Transport_home_island1(this),5,0);
+        addStoryEvent(new Transport_home_island1(this),5,0);
     }
 
 }

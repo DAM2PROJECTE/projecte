@@ -80,7 +80,7 @@ public class TextEvent extends BaseActors implements Draw {
         if (posArrow >= this.arrow.size()) {
             posArrow=1;
         }else{
-            posArrow +=0.25f;
+            posArrow +=0.15f;
             this.showArrow = this.arrow.get((int)posArrow);
         }
 
@@ -107,12 +107,14 @@ public class TextEvent extends BaseActors implements Draw {
         }else {
             font.draw(batch, this.message, 40, 70);
         }*/
-        if(this.map.getHero().getName_position().contains("Up")) {
+        /*if(this.map.getHero().getName_position().contains("Up")) {
             font.draw(batch, this.message1, 40, 70);
             font.draw(batch, this.message2, 40, 40);
         }else{
             font.draw(batch, ManagementMessage.MESSAGE_CANT_READ, 40, 70);
-        }
+        }*/
+        font.draw(batch, this.message1, 40, 70);
+        font.draw(batch, this.message2, 40, 40);
         batch.draw(this.parts.get("EsquerreBaix"),4,2);
         int avaibleHeight = 4;
         int valorheight =16;

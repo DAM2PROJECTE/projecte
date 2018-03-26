@@ -37,14 +37,14 @@ public class Still extends BaseActors {
         this.sprite = sprite;
     }
 
+    public Still(Texture img) {
+        super(img);
+    }
+
     public Still(Texture img, TextureRegion sprite) {
         super(img);
         this.sprite = sprite;
     }
-
-
-
-
 
     @Override
     synchronized public void draw(Batch batch, float parentAlpha) {

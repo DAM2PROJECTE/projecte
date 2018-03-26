@@ -1,9 +1,15 @@
 package game.pokemon.Game.Island1.Screens;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 
+import game.pokemon.Engine.Actors.AutoStill;
 import game.pokemon.Engine.Actors.Hero;
 import game.pokemon.Engine.Actors.Still;
+
 
 import game.pokemon.Engine.Events.ElementEvents.TransportEvent;
 import game.pokemon.Engine.Screens.MapScreen.Square;
@@ -11,6 +17,7 @@ import game.pokemon.Engine.Screens.MapScreen.MapScreen;
 import game.pokemon.Game.Island1.Events.Pistas_Entrenador;
 import game.pokemon.Game.Island1.Events.Pistas_Entrenador2;
 import game.pokemon.Game.Island1.Events.Transport_island1_home;
+import game.pokemon.Game.Island1.Events.Transport_island1_homeB;
 import game.pokemon.Game.Island1.Events.prova1;
 import game.pokemon.Main;
 
@@ -23,14 +30,24 @@ import game.pokemon.Game.Island1.Character.Protagonista;
 public class island1 extends MapScreen {
 
 
+
     public island1(Main game, Hero hero) {
         super(game);
         this.hero=hero;
-
+       /* this.music = Gdx.audio.newMusic(Gdx.files.internal("music/Door_exit.ogg"));
+        this.music.setLooping(true);
+        music.play();*/
+        /*this.audio.getAm().load("Safari.mid",Music.class);
+        ((Music)this.audio.getAm().get("Safari.mid")).play();*/
     }
     public island1(Main game) {
         super(game);
-
+        /*this.music = Gdx.audio.newMusic(Gdx.files.internal("music/Door_exit.ogg"));
+        this.music.setLooping(true);
+        music.play();*/
+        /*this.audio.getAm().load("Safari.mid",Music.class);
+        this.audio.getAm().load("Safari.mid",Music.class);
+        ((Music)this.audio.getAm().get("Safari.mid")).play();*/
 
     }
 
@@ -99,7 +116,7 @@ public class island1 extends MapScreen {
         addSquare(new Still(ms.GetTexture("herba1")),8,5, Square.Level.SMALL);
         addSquare(new Still(ms.GetTexture("herba1")),9,5, Square.Level.SMALL);
         addSquare(new Still(ms.GetTexture("herba1")),10,5, Square.Level.SMALL);
-        addSquare(new Still(ms.GetTexture("herba1")),11,5, Square.Level.SMALL);
+        addSquare(new AutoStill(new Texture("Flowers1.png")),11,5, Square.Level.SMALL);
         addSquare(new Still(ms.GetTexture("herba1")),12,5, Square.Level.SMALL);
         addSquare(new Still(ms.GetTexture("herba1")),13,5, Square.Level.SMALL);
 
@@ -283,11 +300,15 @@ public class island1 extends MapScreen {
         addEvent(new Pistas_Entrenador(this),3,7);
         addEvent(new Pistas_Entrenador2(this),3,7);
         addEvent(new prova1(this),4,3);
-        addEvent(new Transport_island1_home(this),7,3);
+        addStoryEvent(new Transport_island1_homeB(this),7,3);
+        addStoryEvent(new Transport_island1_home(this),7,3);
 
 
     }
 
+    @Override
+    public void hide() {
+        super.hide();
 
-
+    }
 }

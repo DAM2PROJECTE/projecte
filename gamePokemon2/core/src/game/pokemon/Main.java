@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import game.pokemon.Engine.Events.Interruptors;
 import game.pokemon.Game.Island1.Character.Protagonista;
 import game.pokemon.Game.Island1.Screens.island1;
+import game.pokemon.Game.Island1.Screens.randomIsland;
 
 
 public class Main extends Game {
@@ -19,8 +20,8 @@ public class Main extends Game {
         //call to First Screen
         Main.m = this;
         Interruptors.on("event1");
-        island1 is = new island1(this);
-        is.setHero(new Protagonista(new Texture("girl_run.png"),is,4,4));
+        randomIsland is = new randomIsland(this);
+        is.setHero(new Protagonista(new Texture("girl_run.png"),is,0,0));
         setScreen(is);
     }
 }

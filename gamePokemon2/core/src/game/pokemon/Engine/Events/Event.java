@@ -135,7 +135,7 @@ public abstract class Event extends InputAdapter implements Runnable{
                     pauseEvent=false;
             }
             if(this.instruccions.get(this.posInstruction) instanceof Action){
-                if(this.instruccions.size()>1) {
+                if(this.posInstruction>1) {
                     if (this.instruccions.get(this.posInstruction - 1).getClass().getInterfaces()[0].getSimpleName().equals("Draw")) {
                         this.map.removeActorInStage((BaseActors) this.instruccions.get(this.posInstruction - 1));
                     }

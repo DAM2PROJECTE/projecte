@@ -17,6 +17,9 @@ public class Square {
     public boolean doEvent(int pos) {
         return  event.get(pos).active();
     }
+    public boolean doStoryEvent(int pos) {
+        return  StoryEvent.get(pos).active();
+    }
 
     public void setEvent(Event event) {
         this.event.add(event);
@@ -39,7 +42,17 @@ public class Square {
     }
 
     private ArrayList<Event> event;
-    //private ArrayList<Event> StoryEvent;
+
+    public ArrayList<Event> getStoryEvent() {
+        return StoryEvent;
+    }
+
+    public void setStoryEvent(Event storyEvent) {
+        StoryEvent.add(storyEvent);
+    }
+
+    private ArrayList<Event> StoryEvent;
+
     public Square(int squarePosX, int squarePosY, Still small, Still half, Still tall) {
         this.squarePosX = squarePosX;
         this.squarePosY = squarePosY;
@@ -53,6 +66,7 @@ public class Square {
         this.tall.setActorPosX(this.squarePosX);
         this.tall.setActorPosY(this.squarePosY);
         this.event = new ArrayList<Event>();
+        this.StoryEvent = new ArrayList<Event>();
     }
 
     public Square(int squarePosX, int squarePosY) {
@@ -62,6 +76,7 @@ public class Square {
         this.half=null;
         this.tall=null;
         this.event = new ArrayList<Event>();
+        this.StoryEvent = new ArrayList<Event>();
     }
 
 
